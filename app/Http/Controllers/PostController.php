@@ -62,4 +62,24 @@ class PostController extends Controller
         $edata=DB::table('student_tlb')->where('id',$id)->delete();
         return back()->with('post_deleted','student has deleted successfully');
     }
+
+    public function innerJoinCaluse(){
+        $request=DB::table('student')
+                        ->join('student_tlb','student.id','=','student_tlb.group_id')
+                        ->select('student.gropu_name','student.stream','student_tlb.first_name','student_tlb.last_name','student_tlb.email','student_tlb.number')
+                        ->get();
+
+        return $request;
+    }
+
+    public  function contactUs(){
+        return view('contact');
+    }
+
+    public  function aboutUs(){
+        return view('aboutus');
+    }
+    public  function home(){
+        return view('home');
+    }
 }

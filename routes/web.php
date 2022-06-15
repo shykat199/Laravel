@@ -26,3 +26,8 @@ Route::get('/delet_student/{id}',[PostController::class,'deleteStudentById'])->n
 
 Route::post('/update_student',[PostController::class,'updateStudentById'])->name('post.update');
 
+Route::get('/1',[PostController::class,'innerJoinCaluse'])->name('post.innerjoin');
+
+Route::get('/contact_us',[PostController::class,'contactUs']);
+Route::get('/about_us',[PostController::class,'aboutUs']);
+Route::get('/home',[PostController::class,'home']);
