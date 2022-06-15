@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PaginationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ Route::get('/add_post',[PostController::class,'addPost'])->name('post.add');
 Route::post('/add_post',[PostController::class,'addPostSubmit'])->name('post.addsubmit');
 
 Route::get('/show_student',[PostController::class,'getAllStudentList'])->name('post.showdata');
+
 
 Route::get('/show_student/{id}',[PostController::class,'getStudentById'])->name('post.getbyid');
 

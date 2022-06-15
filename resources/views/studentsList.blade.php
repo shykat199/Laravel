@@ -39,30 +39,34 @@
                     @php
                         $i = 1;
                     @endphp
-                    @foreach ($data as $data)
+                    @foreach ($data as $datas)
                         <tr>
                             <th>{{ $i++ }}</th>
-                            <th>{{ $data->first_name }}</th>
-                            <td>{{ $data->last_name }}</td>
-                            <td>{{ $data->city }}</td>
-                            <td>{{ $data->dob }}</td>
-                            <td>{{ $data->gender }}</td>
-                            <td>{{ $data->email }}</td>
-                            <td>{{ $data->number }}</td>
+                            <th>{{ $datas->first_name }}</th>
+                            <td>{{ $datas->last_name }}</td>
+                            <td>{{ $datas->city }}</td>
+                            <td>{{ $datas->dob }}</td>
+                            <td>{{ $datas->gender }}</td>
+                            <td>{{ $datas->email }}</td>
+                            <td>{{ $datas->number }}</td>
                             <td>
-                                <a class="btn btn-warning" href="/show_student/{{ $data->id }}">
+                                <a class="btn btn-warning" href="/show_student/{{ $datas->id }}">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>&nbsp;&nbsp;
-                                <a class="btn btn-danger" href="/delet_student/{{ $data->id }}">
+                                <a class="btn btn-danger" href="/delet_student/{{ $datas->id }}">
                                     <i class="fa-solid fa-trash"></i>
                                 </a>
                             </td>
-
 
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+
+                    <div class="container">
+                        {{$data->links('pagination::bootstrap-4')}}
+                    </div>
+
 
             </div>
 

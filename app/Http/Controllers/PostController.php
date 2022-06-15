@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\StudentModel;
 
 class PostController extends Controller
 {
@@ -29,8 +30,9 @@ class PostController extends Controller
 
     public function getAllStudentList(){
 
-        $data=DB::table('student_tlb')->get();
-        return view('studentsList',compact('data'));
+        $data=StudentModel::orderBy('id', 'desc')->paginate(10);
+        $data=compact('data');
+        return view('studentsList')->with($data);
 
     }
 
