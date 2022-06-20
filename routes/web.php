@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaginationController;
+use App\Http\Controllers\UploadFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,6 @@ Route::get('/1',[PostController::class,'innerJoinCaluse'])->name('post.innerjoin
 
 Route::get('/contact_us',[PostController::class,'contactUs']);
 Route::get('/about_us',[PostController::class,'aboutUs']);
-Route::get('/home',[PostController::class,'home']);
+Route::get('/',[PostController::class,'home'])->name('post.home');
+
+Route::post('/upload',[UploadFileController::class,'fileUplad'])->name('post.fileup');
